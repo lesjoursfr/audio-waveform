@@ -5,6 +5,11 @@ import { promisify } from 'util';
 const execp = promisify(exec);
 const script = resolve(__dirname, './audio-analyzer/runner.js');
 
+export interface AudioAnalyzerOptions {
+  xvfb: boolean;
+  xvfbArgs: string | undefined;
+}
+
 interface AudioAnalyzerError {
   error: string;
 }
@@ -28,14 +33,24 @@ function cleanOutput (std: string) : AudioAnalyzerError | AudioAnalyzerWaveform 
 // AudioAnalyzer Module
 export class AudioAnalyzer {
   file: string;
+  options: AudioAnalyzerOptions;
 
-  constructor (file: string) {
+  constructor (file: string, options?: AudioAnalyzerOptions) {
     this.file = file;
+    this.options = options || { xvfb: false, xvfbArgs: undefined };
+  }
+
+  private command () : string {
+    if (this.options.xvfb) {
+      return `xvfb-run ${this.options.xvfbArgs || ''} node ${require.resolve('electron/cli.js')} --no-sandbox ${script} --file ${this.file}`;
+    }
+
+    return `node ${require.resolve('electron/cli.js')} --no-sandbox ${script} --file ${this.file}`;
   }
 
   async waveform () : Promise<AudioAnalyzerWaveform> {
     // Render the PDF
-    const command = `node ${require.resolve('electron/cli.js')} --no-sandbox ${script} --file ${this.file}`;
+    const command = this.command();
     const { stdout } = await execp(command);
 
     // Clean output
