@@ -3,11 +3,11 @@
 
 audio-waveform
 ================
-Generate PDF from HTML with simple API in Node.js.
+Generate waveform from an audio file with a simple API in Node.js.
 
 # What is this library?
 
-This library use electron to generate PDF files from HTML.
+This library use electron to generate waveform files from an audio file.
 
 
 
@@ -22,22 +22,22 @@ Install the lib and add it as a dependency :
 Then put this in your code:
 
 ```javascript
-    const { PDF } = require("@lesjoursfr/audio-waveform");
+    const { AudioAnalyzer } = require("@lesjoursfr/audio-waveform");
 
-    const pdf = new PDF(target, output);
-    pdf.render()
+    const audioAnalyzer = new AudioAnalyzer(file, options);
+    audioAnalyzer.waveform()
         .then(() => {
-            console.log("PDF Generated Successfully!")
+            console.log("Waveform Generated Successfully!")
         })
         .catch((err) => {
-            console.error("Failed to generate PDF because of ", err)
+            console.error("Failed to generate Waveform because of ", err)
         });
     );
 ```
 
 #### Parameters
 
-- `target`:
-    The URL of the HTML page
-- `output`:
-    The PDF file path
+- `file`:
+    The audio file
+- `options`:
+    Optional options to use xvfb for the generation

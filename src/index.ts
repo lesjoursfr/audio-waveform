@@ -49,7 +49,7 @@ export class AudioAnalyzer {
   }
 
   async waveform () : Promise<AudioAnalyzerWaveform> {
-    // Render the PDF
+    // Render the Waveform
     const command = this.command();
     const { stdout } = await execp(command);
 
