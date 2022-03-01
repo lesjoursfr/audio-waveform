@@ -39,10 +39,10 @@ app.on('ready', function () {
     // Check the channel
     switch (channel) {
       case 'error':
-        process.stdout.write(JSON.stringify({ error: payload }), 'utf8');
+        process.stdout.write(`${JSON.stringify({ error: payload })}\n`, 'utf8');
         break;
       case 'result':
-        process.stdout.write(JSON.stringify(payload), 'utf8');
+        process.stdout.write(`${JSON.stringify(payload)}\n`, 'utf8');
         break;
     }
 

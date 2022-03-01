@@ -19,7 +19,7 @@ interface AudioAnalyzerWaveform {
   waveform: Array<number>;
 }
 
-function cleanOutput (std: string) : AudioAnalyzerError | AudioAnalyzerWaveform | null {
+function cleanOutput (std: string): AudioAnalyzerError | AudioAnalyzerWaveform | null {
   // We look for a line that contains a valid JSON string
   let result = null;
   for (const line of std.split('\n')) {
@@ -28,7 +28,7 @@ function cleanOutput (std: string) : AudioAnalyzerError | AudioAnalyzerWaveform 
     } catch (err) { /* Nothing to do */ }
   }
   return result;
-};
+}
 
 // AudioAnalyzer Module
 export class AudioAnalyzer {
@@ -40,7 +40,7 @@ export class AudioAnalyzer {
     this.options = options || { xvfb: false, xvfbArgs: undefined };
   }
 
-  private command () : string {
+  private command (): string {
     if (this.options.xvfb) {
       return `xvfb-run ${this.options.xvfbArgs || ''} node ${require.resolve('electron/cli.js')} --no-sandbox ${script} --file ${this.file}`;
     }
@@ -48,7 +48,7 @@ export class AudioAnalyzer {
     return `node ${require.resolve('electron/cli.js')} --no-sandbox ${script} --file ${this.file}`;
   }
 
-  async waveform () : Promise<AudioAnalyzerWaveform> {
+  async waveform (): Promise<AudioAnalyzerWaveform> {
     // Render the Waveform
     const command = this.command();
     const { stdout } = await execp(command);

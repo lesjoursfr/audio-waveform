@@ -9,3 +9,4 @@ node_modules
 .travis.yml
 .yarnrc.yml
 tsconfig.json
+.whitesource
