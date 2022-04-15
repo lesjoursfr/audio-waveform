@@ -1,0 +1,34 @@
+name: QC Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: microsoft/playwright-github-action@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm install
+      - name: Check eslint errors
+        run: npm run check-lint
+      - name: Check format
+        run: npm run check-format
+      - name: Check TSC errors
+        run: npm run check-tsc
+      - name: Run tests
+        run: xvfb-run --auto-servernum -- npm run test
