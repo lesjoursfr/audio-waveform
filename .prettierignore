@@ -1,9 +1,6 @@
 # Generated files
 lib
 
-# Electron JS file
-src/audio-analyzer/*.js
-
 # Yarn & node.js dependencies
 package.json
 node_modules/

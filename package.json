@@ -27,8 +27,12 @@
 	],
 	"scripts": {
 		"freshlock": "rm -rf node_modules/ && rm .yarn/install-state.gz && rm -r .yarn/cache/ && rm yarn.lock && yarn",
-		"build": "npx tsc && cp -R src/audio-analyzer lib",
-		"lint": "npx eslint --ext .ts --fix src/",
+		"check-lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+		"check-format": "prettier --check .",
+		"check-tsc": "tsc --noEmit",
+		"lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+		"format": "prettier --write .",
+		"build": "tsc && cp -R src/audio-analyzer lib",
 		"test": "ava"
 	},
 	"dependencies": {
@@ -47,6 +51,8 @@
 		"@typescript-eslint/parser": "^5.19.0",
 		"ava": "^4.2.0",
 		"eslint": "^8.13.0",
+		"eslint-config-prettier": "^8.5.0",
+		"prettier": "^2.6.2",
 		"ts-node": "^10.7.0",
 		"typescript": "^4.6.3"
 	},
