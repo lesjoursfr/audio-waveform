@@ -7,16 +7,11 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Debug AVA test",
+			"name": "Debug AVA test file",
 			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",
-			"runtimeArgs": [
-				"--serial",
-				"${workspaceFolder}/tests/audioanalyzer.spec.ts"
-			],
+			"runtimeArgs": ["${file}"],
 			"outputCapture": "std",
-			"skipFiles": [
-				"<node_internals>/**/*.js"
-			]
+			"skipFiles": ["<node_internals>/**/*.js"]
 		}
 	]
 }

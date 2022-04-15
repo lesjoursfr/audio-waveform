@@ -1,15 +1,13 @@
 [![npm version](https://badge.fury.io/js/@lesjoursfr%2Faudio-waveform.svg)](https://badge.fury.io/js/@lesjoursfr%2Faudio-waveform)
 [![Build Status](https://travis-ci.org/lesjoursfr/audio-waveform.svg?branch=master)](https://travis-ci.org/lesjoursfr/audio-waveform)
 
-audio-waveform
-================
+# audio-waveform
+
 Generate waveform from an audio file with a simple API in Node.js.
 
 # What is this library?
 
 This library use electron to generate waveform files from an audio file.
-
-
 
 ## Usage
 
@@ -37,7 +35,7 @@ Then put this in your code:
 
 #### Parameters
 
-- `file`:
+-   `file`:
     The audio file
-- `options`:
+-   `options`:
     Optional options to use xvfb for the generation

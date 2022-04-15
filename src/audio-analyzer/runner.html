@@ -1,90 +1,90 @@
 <html>
+	<head>
+		<meta http-equiv="Content-Security-Policy" content="default-src file: 'unsafe-inline'" />
+	</head>
 
-<head>
-	<meta http-equiv="Content-Security-Policy" content="default-src file: 'unsafe-inline'">
-</head>
+	<body>
+		<audio>
+			<source type="%FILE_MIME_TYPE%" src="%FILE_RESSOURCE_PATH%" />
+		</audio>
+	</body>
 
-<body>
-	<audio>
-		<source type="%FILE_MIME_TYPE%" src="%FILE_RESSOURCE_PATH%" />
-	</audio>
-</body>
+	<script type="text/javascript">
+		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// PODCAST PLAYER                                                                                                     //
+		// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		function PodcastPlayer() {
+			window.AudioContext = window.AudioContext || window.webkitAudioContext;
+			this._context = new AudioContext();
+		}
 
-<script type="text/javascript">
-	// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// PODCAST PLAYER                                                                                                     //
-	// /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	function PodcastPlayer() {
-		window.AudioContext = window.AudioContext || window.webkitAudioContext;
-		this._context = new AudioContext();
-	}
+		PodcastPlayer.prototype.visualize = function (element) {
+			// Set parameters
+			this._$element = element;
+			this._url = element.getAttribute("src");
 
-	PodcastPlayer.prototype.visualize = function (element) {
-		// Set parameters
-		this._$element = element;
-		this._url = element.getAttribute("src");
+			// Fetch the source
+			var self = this;
+			fetch(this._url)
+				.then(function (response) {
+					return response.arrayBuffer();
+				})
+				.then(function (arrayBuffer) {
+					return self._context.decodeAudioData(arrayBuffer);
+				})
+				.then(function (audioBuffer) {
+					return {
+						duration: audioBuffer.duration,
+						waveform: self._filterAndNormalize(audioBuffer),
+					};
+				})
+				.then(function (result) {
+					window.sendToElectron("result", result);
+				})
+				.catch(function (err) {
+					window.sendToElectron("error", err);
+				});
+		};
 
-		// Fetch the source
-		var self = this;
-		fetch(this._url)
-			.then(function (response) {
-				return response.arrayBuffer();
-			})
-			.then(function (arrayBuffer) {
-				return self._context.decodeAudioData(arrayBuffer);
-			})
-			.then(function (audioBuffer) {
-				return {
-					duration: audioBuffer.duration,
-					waveform: self._filterAndNormalize(audioBuffer)
-				};
-			})
-			.then(function (result) {
-				window.sendToElectron("result", result);
-			})
-			.catch(function (err) {
-				window.sendToElectron("error", err);
+		PodcastPlayer.prototype._filterAndNormalize = function (audioBuffer) {
+			// Variables
+			var rawData = audioBuffer.getChannelData(0), // We only need to work with one channel of data
+				samples = 2048, // Number of samples we want to have in our final data set
+				blockSize = Math.floor(rawData.length / samples), // The number of samples in each subdivision
+				filteredData = [],
+				multiplier,
+				i;
+
+			// Filter the data
+			for (i = 0; i < samples; i++) {
+				filteredData.push(this._getBlockSum(rawData, blockSize * i, blockSize) / blockSize); // Divide the sum by the block size to get the average
+			}
+
+			// Normalize the data
+			multiplier = Math.pow(Math.max.apply(null, filteredData), -1);
+			filteredData = filteredData.map(function (n) {
+				return n * multiplier;
 			});
-	};
 
-	PodcastPlayer.prototype._filterAndNormalize = function (audioBuffer) {
-		// Variables
-		var rawData = audioBuffer.getChannelData(0),        // We only need to work with one channel of data
-			samples = 2048,                                 // Number of samples we want to have in our final data set
-			blockSize = Math.floor(rawData.length / samples), // The number of samples in each subdivision
-			filteredData = [],
-			multiplier,
-			i;
+			// Return the filtered & normalized data
+			return filteredData;
+		};
 
-		// Filter the data
-		for (i = 0; i < samples; i++) {
-			filteredData.push(this._getBlockSum(rawData, blockSize * i, blockSize) / blockSize); // Divide the sum by the block size to get the average
-		}
+		PodcastPlayer.prototype._getBlockSum = function (rawData, blockStart, blockSize) {
+			// Variables
+			var sum = 0,
+				j;
 
-		// Normalize the data
-		multiplier = Math.pow(Math.max.apply(null, filteredData), -1);
-		filteredData = filteredData.map(function (n) { return n * multiplier; });
+			// Calculate the sum of all the samples in the block
+			for (j = 0; j < blockSize; j++) {
+				sum = sum + Math.abs(rawData[blockStart + j]);
+			}
 
-		// Return the filtered & normalized data
-		return filteredData;
-	};
+			// Return the sum
+			return sum;
+		};
 
-	PodcastPlayer.prototype._getBlockSum = function (rawData, blockStart, blockSize) {
-		// Variables
-		var sum = 0,
-			j;
-
-		// Calculate the sum of all the samples in the block
-		for (j = 0; j < blockSize; j++) {
-			sum = sum + Math.abs(rawData[blockStart + j]);
-		}
-
-		// Return the sum
-		return sum;
-	};
-
-	var player = new PodcastPlayer();
-	player.visualize(document.querySelectorAll("audio > source")[0]);
-</script>
-
+		var player = new PodcastPlayer();
+		player.visualize(document.querySelectorAll("audio > source")[0]);
+	</script>
 </html>
