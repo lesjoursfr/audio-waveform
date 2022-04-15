@@ -26,6 +26,7 @@
 		"src/**/*"
 	],
 	"scripts": {
+		"freshlock": "rm -rf node_modules/ && rm .yarn/install-state.gz && rm -r .yarn/cache/ && rm yarn.lock && yarn",
 		"build": "npx tsc && cp -R src/audio-analyzer lib",
 		"lint": "npx eslint --ext .ts --fix src/",
 		"test": "ava"
