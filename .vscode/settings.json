@@ -4,7 +4,6 @@
 		"**/node_modules/**": true,
 		"**/.yarn/**": true
 	},
-	"search.maintainFileSearchCache": true,
 	"files.exclude": {
 		"**/.git/**": true,
 		"**/node_modules/**": true,
@@ -15,15 +14,16 @@
 		"**/node_modules/**": true,
 		"**/.yarn/**": true
 	},
-	"eslint.format.enable": true,
-	"[javascript]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
-	},
-	"[typescript]": {
-		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
-	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.codeActionsOnSave": {
 		"source.fixAll": true,
 		"source.organizeImports": true
+	},
+	"eslint.format.enable": true,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	}
 }

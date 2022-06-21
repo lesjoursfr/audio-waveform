@@ -7,28 +7,50 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  checks:
+    name: QC Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install
+        run: npm install
+
+      - name: ESLint checks
+        run: npm run check-lint
+
+      - name: Prettier checks
+        run: npm run check-format
+
+      - name: TSC checks
+        run: npm run check-tsc
+
+  tests:
+    name: Tests Node.js ${{ matrix.node-version }}
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [16.x, 18.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v3
+
       - uses: microsoft/playwright-github-action@v1
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
+
+      - name: Install
         run: npm install
-      - name: Check eslint errors
-        run: npm run check-lint
-      - name: Check format
-        run: npm run check-format
-      - name: Check TSC errors
-        run: npm run check-tsc
-      - name: Run tests
+
+      - name: AVA Tests
         run: xvfb-run --auto-servernum -- npm run test

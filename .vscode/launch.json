@@ -7,9 +7,9 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "Debug AVA test file",
+			"name": "AVA tests",
 			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",
-			"runtimeArgs": ["${file}"],
+			"runtimeArgs": [],
 			"outputCapture": "std",
 			"skipFiles": ["<node_internals>/**/*.js"]
 		}
