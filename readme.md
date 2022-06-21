@@ -1,7 +1,7 @@
 [![npm version](https://badge.fury.io/js/@lesjoursfr%2Faudio-waveform.svg)](https://badge.fury.io/js/@lesjoursfr%2Faudio-waveform)
-[![Build Status](https://travis-ci.org/lesjoursfr/audio-waveform.svg?branch=master)](https://travis-ci.org/lesjoursfr/audio-waveform)
+[![QC Checks](https://github.com/lesjoursfr/audio-waveform/actions/workflows/quality-control.yml/badge.svg)](https://github.com/lesjoursfr/audio-waveform/actions/workflows/quality-control.yml)
 
-# audio-waveform
+# @lesjoursfr/audio-waveform
 
 Generate waveform from an audio file with a simple API in Node.js.
 
