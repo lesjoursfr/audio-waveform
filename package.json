@@ -36,7 +36,7 @@
 		"test": "ava"
 	},
 	"dependencies": {
-		"electron": "^21.2.0",
+		"electron": "^21.2.1",
 		"mime-types": "^2.1.35",
 		"uuid": "^9.0.0",
 		"yargs": "^17.6.0"
@@ -44,11 +44,11 @@
 	"devDependencies": {
 		"@tsconfig/node16": "^1.0.3",
 		"@types/mime-types": "^2.1.1",
-		"@types/node": "^18.11.7",
+		"@types/node": "^18.11.9",
 		"@types/uuid": "^8.3.4",
 		"@types/yargs": "^17.0.13",
-		"@typescript-eslint/eslint-plugin": "^5.41.0",
-		"@typescript-eslint/parser": "^5.41.0",
+		"@typescript-eslint/eslint-plugin": "^5.42.0",
+		"@typescript-eslint/parser": "^5.42.0",
 		"ava": "^5.0.1",
 		"eslint": "^8.26.0",
 		"eslint-config-prettier": "^8.5.0",
