@@ -4,7 +4,6 @@
 		/* Visit https://aka.ms/tsconfig.json to read more about this file */
 		"outDir": "lib",
 		"rootDir": "src",
-		"module": "CommonJS",
 		"declaration": true,
 		"declarationDir": "lib"
 	},
