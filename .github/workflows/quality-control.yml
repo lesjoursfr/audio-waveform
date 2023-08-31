@@ -52,5 +52,5 @@ jobs:
       - name: Install
         run: npm install
 
-      - name: AVA Tests
-        run: xvfb-run --auto-servernum -- npm run test
+      - name: Run tests
+        run: xvfb-run --auto-servernum -- npx mocha

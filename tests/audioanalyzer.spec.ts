@@ -1,4 +1,4 @@
-import test from "ava";
+import assert from "assert";
 import { resolve } from "path";
 import { AudioAnalyzer, AudioAnalyzerOptions } from "../src/index";
 
@@ -10,15 +10,15 @@ async function runTestOn(input: string, options?: AudioAnalyzerOptions): Promise
   return op.duration > 0 && op.waveform.length > 0;
 }
 
-test.serial("AudioAnalyzer > waveform", async (t) => {
-  t.is(await runTestOn("audio.m4a"), true);
-});
+it("AudioAnalyzer > waveform", async () => {
+  assert.strictEqual(await runTestOn("audio.m4a"), true);
+}).timeout(10000);
 
-test.serial("AudioAnalyzer > waveform (xvfb-run)", async (t) => {
+it("AudioAnalyzer > waveform (xvfb-run)", async () => {
   const options = {
     xvfb: true,
     xvfbArgs: '--server-args="-screen 0 1024x768x24" --auto-servernum --error-file="/tmp/xvfb-error.txt"',
   };
 
-  t.is(await runTestOn("audio.m4a", options), true);
-});
+  assert.strictEqual(await runTestOn("audio.m4a", options), true);
+}).timeout(10000);

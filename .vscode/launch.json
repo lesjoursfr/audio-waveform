@@ -7,8 +7,8 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "AVA tests",
-			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/ava",
+			"name": "Tests",
+			"runtimeExecutable": "${workspaceFolder}/node_modules/.bin/mocha",
 			"runtimeArgs": [],
 			"outputCapture": "std",
 			"skipFiles": ["<node_internals>/**/*.js"]
