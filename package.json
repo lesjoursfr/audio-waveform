@@ -26,7 +26,7 @@
 		"src/**/*"
 	],
 	"scripts": {
-		"freshlock": "rm -rf node_modules/ && rm .yarn/install-state.gz && rm -r .yarn/cache/ && rm yarn.lock && yarn",
+		"freshlock": "rm -rf node_modules/ && rm .yarn/install-state.gz && rm yarn.lock && yarn",
 		"check-lint": "eslint . --ext .js,.jsx,.ts,.tsx",
 		"check-format": "prettier --check .",
 		"check-tsc": "tsc --noEmit",
