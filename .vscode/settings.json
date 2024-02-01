@@ -2,22 +2,28 @@
 	"search.exclude": {
 		"**/.git/**": true,
 		"**/node_modules/**": true,
-		"**/.yarn/**": true
+		"**/.yarn/**": true,
+		"**/lib/**": true
 	},
 	"files.exclude": {
 		"**/.git/**": true,
 		"**/node_modules/**": true,
-		"**/.yarn/**": true
+		"**/.yarn/**": true,
+		"**/lib/**": true
 	},
 	"files.watcherExclude": {
 		"**/.git/**": true,
 		"**/node_modules/**": true,
-		"**/.yarn/**": true
+		"**/.yarn/**": true,
+		"**/lib/**": true
 	},
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[scss]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[json]": {
@@ -27,7 +33,13 @@
 		"source.fixAll": "explicit",
 		"source.organizeImports": "explicit"
 	},
+	"eslint.enable": true,
 	"eslint.format.enable": true,
 	"prettier.configPath": ".prettierrc.js",
-	"prettier.ignorePath": ".prettierignore"
+	"prettier.ignorePath": ".prettierignore",
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"stylelint.enable": true,
+	"stylelint.validate": ["css", "scss"]
 }
