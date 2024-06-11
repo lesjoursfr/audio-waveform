@@ -25,7 +25,7 @@ function cleanOutput(std: string): AudioAnalyzerError | AudioAnalyzerWaveform | 
   for (const line of std.split("\n")) {
     try {
       result = JSON.parse(line);
-    } catch (err) {
+    } catch (_err) {
       /* Nothing to do */
     }
   }

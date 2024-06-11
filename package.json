@@ -12,7 +12,7 @@
 		"access": "public"
 	},
 	"engines": {
-		"node": "18.x || 20.x"
+		"node": "20.x || 22.x"
 	},
 	"keywords": [
 		"waveform",
@@ -27,35 +27,35 @@
 	],
 	"scripts": {
 		"freshlock": "rm -rf node_modules/ && rm .yarn/install-state.gz && rm yarn.lock && yarn",
-		"check-lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+		"check-lint": "eslint",
 		"check-format": "prettier --check .",
 		"check-tsc": "tsc --noEmit",
-		"lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
+		"lint": "eslint --fix",
 		"format": "prettier --write .",
 		"build": "tsc && cp -R src/audio-analyzer lib",
 		"test": "mocha"
 	},
 	"dependencies": {
-		"electron": "^30.0.8",
+		"electron": "^31.0.0",
 		"mime-types": "^2.1.35",
-		"uuid": "^9.0.1",
+		"uuid": "^10.0.0",
 		"yargs": "^17.7.2"
 	},
 	"devDependencies": {
-		"@tsconfig/node18": "^18.2.4",
+		"@eslint/js": "^9.4.0",
+		"@tsconfig/node20": "^20.1.4",
 		"@types/mime-types": "^2.1.4",
 		"@types/mocha": "^10.0.6",
-		"@types/node": "^20.12.12",
-		"@types/uuid": "^9.0.8",
+		"@types/node": "^20.14.2",
 		"@types/yargs": "^17.0.32",
-		"@typescript-eslint/eslint-plugin": "^7.11.0",
-		"@typescript-eslint/parser": "^7.11.0",
-		"eslint": "^8.57.0",
+		"eslint": "^9.4.0",
 		"eslint-config-prettier": "^9.1.0",
+		"globals": "^15.4.0",
 		"mocha": "^10.4.0",
-		"prettier": "^3.2.5",
+		"prettier": "^3.3.2",
 		"ts-node": "^10.9.2",
-		"typescript": "^5.4.5"
+		"typescript": "^5.4.5",
+		"typescript-eslint": "^8.0.0-alpha.30"
 	},
-	"packageManager": "yarn@4.2.2"
+	"packageManager": "yarn@4.3.0"
 }
