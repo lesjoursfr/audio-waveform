@@ -1,6 +1,6 @@
 {
 	"name": "@lesjoursfr/audio-waveform",
-	"version": "3.1.6",
+	"version": "3.1.7",
 	"description": "A library to generate waveform for audio files.",
 	"license": "MIT",
 	"repository": "lesjoursfr/audio-waveform",
