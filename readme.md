@@ -35,7 +35,7 @@ Then put this in your code:
 
 #### Parameters
 
--   `file`:
-    The audio file
--   `options`:
-    Optional options to use xvfb for the generation
+- `file`:
+  The audio file
+- `options`:
+  Optional options to use xvfb for the generation
