@@ -50,12 +50,12 @@
 		"@types/yargs": "^17.0.33",
 		"eslint": "^9.16.0",
 		"eslint-config-prettier": "^9.1.0",
-		"globals": "^15.12.0",
-		"mocha": "^11.0.0",
-		"prettier": "^3.4.1",
+		"globals": "^15.13.0",
+		"mocha": "^11.0.1",
+		"prettier": "^3.4.2",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.7.2",
-		"typescript-eslint": "^8.16.0"
+		"typescript-eslint": "^8.17.0"
 	},
 	"packageManager": "yarn@4.5.3"
 }
