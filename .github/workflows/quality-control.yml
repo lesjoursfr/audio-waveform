@@ -42,12 +42,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: microsoft/playwright-github-action@v1
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Install system dependencies for Electron
+        run: npx playwright install-deps
 
       - name: Install
         run: npm install
