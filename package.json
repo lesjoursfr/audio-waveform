@@ -36,7 +36,7 @@
 		"test": "mocha"
 	},
 	"dependencies": {
-		"electron": "^34.1.1",
+		"electron": "^34.2.0",
 		"mime-types": "^2.1.35",
 		"uuid": "^11.0.5",
 		"yargs": "^17.7.2"
@@ -46,13 +46,13 @@
 		"@tsconfig/node20": "^20.1.4",
 		"@types/mime-types": "^2.1.4",
 		"@types/mocha": "^10.0.10",
-		"@types/node": "^22.13.1",
+		"@types/node": "^22.13.4",
 		"@types/yargs": "^17.0.33",
-		"eslint": "^9.20.0",
+		"eslint": "^9.20.1",
 		"eslint-config-prettier": "^10.0.1",
-		"globals": "^15.14.0",
+		"globals": "^15.15.0",
 		"mocha": "^11.1.0",
-		"prettier": "^3.5.0",
+		"prettier": "^3.5.1",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.7.3",
 		"typescript-eslint": "^8.24.0"
