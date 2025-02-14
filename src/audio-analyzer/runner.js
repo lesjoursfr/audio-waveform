@@ -19,7 +19,7 @@ const { file } = yargs(["file"]).argv;
 app.on("ready", function () {
   // Variables
   const filename = uuidv4();
-  const htmlFile = "/tmp/" + filename + ".html";
+  const htmlFile = `/tmp/${filename}.html`;
 
   // Create a temporary file
   writeFileSync(htmlFile, generateHtmlFile(file), { encoding: "utf8" });
