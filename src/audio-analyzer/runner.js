@@ -1,9 +1,13 @@
 const { join, extname } = require("path");
 const { app, BrowserWindow } = require("electron");
 const { readFileSync, writeFileSync, unlinkSync } = require("fs");
-const { string: yargs } = require("yargs");
+const yargs = require("yargs");
+const { hideBin } = require("yargs/helpers");
 const { v4: uuidv4 } = require("uuid");
 const { lookup } = require("mime-types");
+
+// Arguments
+const { file } = yargs(hideBin(process.argv)).string(["file"]).parse();
 
 // Function to generate the HTML file
 function generateHtmlFile(audioFile) {
@@ -11,9 +15,6 @@ function generateHtmlFile(audioFile) {
     .replace("%FILE_MIME_TYPE%", lookup(extname(audioFile)))
     .replace("%FILE_RESSOURCE_PATH%", `file://${audioFile}`);
 }
-
-// Arguments
-const { file } = yargs(["file"]).argv;
 
 // Wait until Electron is Ready
 app.on("ready", function () {
