@@ -46,7 +46,7 @@
 		"@tsconfig/node22": "^22.0.2",
 		"@types/mime-types": "^3.0.1",
 		"@types/mocha": "^10.0.10",
-		"@types/node": "^24.9.1",
+		"@types/node": "^24.9.2",
 		"@types/yargs": "^17.0.34",
 		"eslint": "^9.38.0",
 		"eslint-config-prettier": "^10.1.8",
