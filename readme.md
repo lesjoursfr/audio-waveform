@@ -14,23 +14,23 @@ This library use electron to generate waveform files from an audio file.
 Install the lib and add it as a dependency :
 
 ```
-    npm install @lesjoursfr/audio-waveform
+npm install @lesjoursfr/audio-waveform
 ```
 
 Then put this in your code:
 
 ```javascript
-    const { AudioAnalyzer } = require("@lesjoursfr/audio-waveform");
+const { AudioAnalyzer } = require("@lesjoursfr/audio-waveform");
 
-    const audioAnalyzer = new AudioAnalyzer(file, options);
-    audioAnalyzer.waveform()
-        .then(() => {
-            console.log("Waveform Generated Successfully!")
-        })
-        .catch((err) => {
-            console.error("Failed to generate Waveform because of ", err)
-        });
-    );
+const audioAnalyzer = new AudioAnalyzer(file, options);
+audioAnalyzer
+	.waveform()
+	.then(() => {
+		console.log("Waveform Generated Successfully!");
+	})
+	.catch((err) => {
+		console.error("Failed to generate Waveform because of ", err);
+	});
 ```
 
 #### Parameters
