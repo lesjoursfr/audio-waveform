@@ -68,9 +68,7 @@ export class AudioAnalyzer {
 
   private command(): string {
     if (this.options.xvfb) {
-      return `xvfb-run ${this.options.xvfbArgs || ""} node ${require.resolve(
-        "electron/cli.js"
-      )} --no-sandbox ${script} --file ${this.file}`;
+      return `xvfb-run ${this.options.xvfbArgs || ""} node ${require.resolve("electron/cli.js")} --no-sandbox ${script} --file ${this.file}`;
     }
 
     return `node ${require.resolve("electron/cli.js")} --no-sandbox ${script} --file ${this.file}`;
