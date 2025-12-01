@@ -36,14 +36,14 @@
 		"test": "mocha"
 	},
 	"dependencies": {
-		"electron": "^39.2.0",
-		"mime-types": "^3.0.1",
+		"electron": "^39.2.4",
+		"mime-types": "^3.0.2",
 		"uuid": "^11.1.0",
 		"yargs": "^18.0.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.39.1",
-		"@tsconfig/node22": "^22.0.3",
+		"@tsconfig/node22": "^22.0.5",
 		"@types/mime-types": "^3.0.1",
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^24.10.1",
@@ -52,15 +52,15 @@
 		"eslint-config-prettier": "^10.1.8",
 		"globals": "^16.5.0",
 		"mocha": "^11.7.5",
-		"prettier": "^3.6.2",
+		"prettier": "^3.7.1",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.46.4"
+		"typescript-eslint": "^8.48.0"
 	},
 	"dependenciesMeta": {
 		"electron": {
 			"built": true
 		}
 	},
-	"packageManager": "yarn@4.11.0"
+	"packageManager": "yarn@4.12.0"
 }
