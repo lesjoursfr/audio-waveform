@@ -36,26 +36,26 @@
 		"test": "mocha"
 	},
 	"dependencies": {
-		"electron": "^39.2.4",
+		"electron": "^39.2.7",
 		"mime-types": "^3.0.2",
 		"uuid": "^11.1.0",
 		"yargs": "^18.0.0"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.39.1",
+		"@eslint/js": "^9.39.2",
 		"@tsconfig/node22": "^22.0.5",
 		"@types/mime-types": "^3.0.1",
 		"@types/mocha": "^10.0.10",
-		"@types/node": "^24.10.1",
+		"@types/node": "^24.10.4",
 		"@types/yargs": "^17.0.35",
-		"eslint": "^9.39.1",
+		"eslint": "^9.39.2",
 		"eslint-config-prettier": "^10.1.8",
 		"globals": "^17.0.0",
 		"mocha": "^11.7.5",
-		"prettier": "^3.7.3",
+		"prettier": "^3.7.4",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.48.0"
+		"typescript-eslint": "^8.51.0"
 	},
 	"dependenciesMeta": {
 		"electron": {
