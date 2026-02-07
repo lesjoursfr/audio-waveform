@@ -38,7 +38,7 @@
 	"dependencies": {
 		"electron": "^40.2.1",
 		"mime-types": "^3.0.2",
-		"uuid": "^11.1.0",
+		"uuid": "^13.0.0",
 		"yargs": "^18.0.0"
 	},
 	"devDependencies": {
