@@ -1,12 +1,13 @@
 import eslint from "@eslint/js";
 import prettierConfig from "eslint-config-prettier";
+import { defineConfig } from "eslint/config";
 import * as espree from "espree";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config(
+export default defineConfig(
   eslint.configs.recommended,
-  ...tseslint.configs.recommended,
+  tseslint.configs.recommended,
   {
     languageOptions: {
       parserOptions: {

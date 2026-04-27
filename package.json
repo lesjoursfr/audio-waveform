@@ -3,7 +3,10 @@
 	"version": "4.0.6",
 	"description": "A library to generate waveform for audio files.",
 	"license": "MIT",
-	"repository": "lesjoursfr/audio-waveform",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/lesjoursfr/audio-waveform.git"
+	},
 	"homepage": "https://github.com/lesjoursfr/audio-waveform#readme",
 	"bugs": {
 		"url": "https://github.com/lesjoursfr/audio-waveform/issues"
@@ -21,10 +24,6 @@
 	],
 	"main": "./lib/index.js",
 	"types": "./lib/index.d.ts",
-	"files": [
-		"lib/**/*",
-		"src/**/*"
-	],
 	"scripts": {
 		"freshlock": "rm -rf node_modules/ && rm .yarn/install-state.gz && rm yarn.lock && yarn",
 		"check-lint": "eslint",
@@ -36,7 +35,7 @@
 		"test": "mocha"
 	},
 	"dependencies": {
-		"electron": "^41.2.0",
+		"electron": "^41.2.1",
 		"mime-types": "^3.0.2",
 		"uuid": "^14.0.0",
 		"yargs": "^18.0.0"
@@ -48,7 +47,7 @@
 		"@types/mocha": "10.0.10",
 		"@types/node": "24.12.2",
 		"@types/yargs": "17.0.35",
-		"eslint": "10.2.0",
+		"eslint": "10.2.1",
 		"eslint-config-prettier": "10.1.8",
 		"globals": "17.5.0",
 		"mocha": "11.7.5",
@@ -62,5 +61,5 @@
 			"built": true
 		}
 	},
-	"packageManager": "yarn@4.13.0"
+	"packageManager": "yarn@4.14.1"
 }
