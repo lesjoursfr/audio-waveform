@@ -1,6 +1,7 @@
 const { join, extname } = require("path");
 const { app, BrowserWindow } = require("electron");
 const { readFileSync, writeFileSync, unlinkSync } = require("fs");
+const { tmpdir } = require("os");
 const yargs = require("yargs");
 const { hideBin } = require("yargs/helpers");
 const { v4: uuidv4 } = require("uuid");
@@ -20,7 +21,7 @@ function generateHtmlFile(audioFile) {
 app.on("ready", function () {
   // Variables
   const filename = uuidv4();
-  const htmlFile = `/tmp/${filename}.html`;
+  const htmlFile = join(tmpdir(), `ljsaw-${filename}.html`);
 
   // Create a temporary file
   writeFileSync(htmlFile, generateHtmlFile(file), { encoding: "utf8" });
