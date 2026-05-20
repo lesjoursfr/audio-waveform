@@ -1,4 +1,5 @@
 import { exec } from "child_process";
+import { access, constants } from "fs/promises";
 import { resolve } from "path";
 import { promisify } from "util";
 
@@ -58,8 +59,8 @@ async function exitCodeSafeExec(command: string): Promise<string> {
 
 // AudioAnalyzer Module
 export class AudioAnalyzer {
-  file: string;
-  options: AudioAnalyzerOptions;
+  readonly file: string;
+  readonly options: AudioAnalyzerOptions;
 
   constructor(file: string, options?: AudioAnalyzerOptions) {
     this.file = file;
@@ -75,6 +76,13 @@ export class AudioAnalyzer {
   }
 
   async waveform(): Promise<AudioAnalyzerWaveform> {
+    // Check if the file exists and is readable
+    try {
+      await access(this.file, constants.R_OK);
+    } catch (err) {
+      throw new Error(`The file is not readable [file : ${this.file}]`, { cause: err });
+    }
+
     // Render the Waveform
     const command = this.command();
     const stdout = await exitCodeSafeExec(command);
