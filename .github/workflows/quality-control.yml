@@ -65,5 +65,8 @@ jobs:
           yarn config set enableImmutableInstalls false
           yarn install
 
+      - name: Download Electron
+        run: npx install-electron
+
       - name: Run tests
         run: xvfb-run --auto-servernum -- npx mocha
