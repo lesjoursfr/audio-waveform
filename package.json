@@ -35,7 +35,7 @@
 		"test": "mocha"
 	},
 	"dependencies": {
-		"electron": "^44.9.3",
+		"electron": "^45.0.0",
 		"mime-types": "^3.0.2",
 		"uuid": "^14.0.3",
 		"yargs": "^18.2.0"
